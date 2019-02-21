@@ -1,0 +1,12 @@
+# system
+.DS_Store
+
+# npm
+node_modules/
+npm-debug.log
+
+# custom
+.vscode
+lerna-debug.log
+
+dist
