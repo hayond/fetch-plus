@@ -2,7 +2,7 @@
   "name": "fetch-plus",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/FetchPlus.js",
+  "main": "dist/FetchPlusPonyfill.js",
   "config": {
     "src": "./src",
     "dist": "./dist"
