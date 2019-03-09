@@ -47,7 +47,7 @@ index is the order in the middleware list, default will push to the end
 
 ### Classes
 
-#### FetchPlusPonyfill
+#### [FetchPlusPonyfill](https://github.com/touwaka/fetch-plus/blob/master/src/FetchPlusPonyfill.mjs)
 ```js
 import FetchPlusPonyfill, { fetch } from  'fetch-p'
 import searchBodyPlugin from 'fetch-p/dist/plugins/SearchBodyPlugin'
@@ -56,10 +56,10 @@ const FetchPlus = new FetchPlusPonyfill()
 FetchPlus.use(searchBodyPlugin())
 FetchPlus.fetch('https://unpkg.com/react', { dataType: 'text' })
 ```
-method fetch is the shortcut of the FetchPlusPonyfill instance, with default inner plugins [[DataTypePlugin], [SearchBodyPlugin]]
+method fetch is the shortcut of the FetchPlusPonyfill instance, with default inner plugins [[DataTypePlugin](https://github.com/touwaka/fetch-plus/blob/master/src/plugins/DataTypePlugin.mjs), [SearchBodyPlugin](https://github.com/touwaka/fetch-plus/blob/master/src/plugins/SearchBodyPlugin.mjs)]
 
-#### FetchPlus
-```
+#### [FetchPlus](https://github.com/touwaka/fetch-plus/blob/master/src/FetchPlus.mjs)
+```js
 import FetchPlus from 'fetch-p/dist/FetchPlus'
 ```
 base FetchPlus class without [fetch-ponyfill](https://github.com/qubyte/fetch-ponyfill)
