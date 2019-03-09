@@ -17,8 +17,8 @@ export default class FetchPlus {
 	}
 
 	constructor(options) {
-		if (!options || !options.fetch) throw new TypeError('main fetch exec needed!')
-		this.fetchExec = options.fetch
+		this.fetchExec = (options && options.fetch) || (typeof fetch === 'function' && fetch)
+		if (!this.fetchExec) throw new TypeError('main fetch exec needed!')
 	}
 
 	fetch(url, options = {}) { 
