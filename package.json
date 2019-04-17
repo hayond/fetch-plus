@@ -1,6 +1,6 @@
 {
   "name": "fetch-p",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/FetchPlusPonyfill.js",
   "config": {
@@ -13,6 +13,11 @@
     "test": "npm run build && node ./test",
     "debug": "npm run build && node --inspect-brk ./test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/touwaka/fetch-plus.git"
+  },
+  "homepage": "https://github.com/touwaka/fetch-plus#readme",
   "keywords": [],
   "author": "",
   "license": "MIT",
