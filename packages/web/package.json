@@ -1,6 +1,6 @@
 {
   "name": "fetch-p",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "main": "index",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "author": "jane.gao",
   "dependencies": {
-    "@fetch-plus/ponyfill": "^1.1.0"
+    "@fetch-plus/ponyfill": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
