@@ -19,5 +19,6 @@
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "03fbf6cb2920c8b088bf9c1f8ee16d4c77ee2cbf"
 }
