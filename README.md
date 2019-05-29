@@ -5,13 +5,13 @@ koa style middleware for Fetch API on browser and nodejs
 ### Install
 
 ```
-npm install fetch-p --save
+npm install @fetch-plus/ponyfill --save
 ```
 
 ### Usage
 
 ```js
-import { fetch } from  'fetch-p'
+import { fetch } from '@fetch-plus/ponyfill'
 
 fetch.use(async (ctx, next) => {
 	const { request } = ctx
@@ -49,20 +49,20 @@ index is the order in the middleware list, default will push to the end
 
 #### FetchPlusPonyfill
 ```js
-import FetchPlusPonyfill, { fetch } from  'fetch-p'
-import searchBodyPlugin from 'fetch-p/dist/plugins/SearchBodyPlugin'
+import FetchPlusPonyfill, { fetch } from  '@fetch-plus/ponyfill'
+import searchBodyPlugin from '@fetch-plus/plugins/lib/SearchBodyPlugin'
 
 const FetchPlus = new FetchPlusPonyfill()
 FetchPlus.use(searchBodyPlugin())
 FetchPlus.fetch('https://unpkg.com/react', { dataType: 'text' })
 ```
 method fetch is the shortcut of the FetchPlusPonyfill instance, with default inner plugins:
-- [DataTypePlugin](https://github.com/touwaka/fetch-plus/blob/master/src/plugins/DataTypePlugin.mjs)
-- [SearchBodyPlugin](https://github.com/touwaka/fetch-plus/blob/master/src/plugins/SearchBodyPlugin.mjs)
+- DataTypePlugin
+- SearchBodyPlugin
 
 #### FetchPlus
 ```js
-import FetchPlus from 'fetch-p/dist/FetchPlus'
+import FetchPlus from '@fetch-plus/core'
 ```
 base FetchPlus class without [fetch-ponyfill](https://github.com/qubyte/fetch-ponyfill)
 
