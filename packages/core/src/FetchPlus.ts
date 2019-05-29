@@ -22,9 +22,7 @@ export default class FetchPlus {
         const { request: { url, options }, response } = ctx
         const res = await fetch(url, options)
         response.res = res
-        response.ctx = ctx
         ctx.data = res
-        ctx.response = response
     }
     middlewares = []
 
