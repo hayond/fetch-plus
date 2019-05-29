@@ -16,7 +16,8 @@ export interface ConstructArgs {
 export default class FetchPlus {
 
     private fetchExec
-    private fetchMiddleware = async (ctx, next) => {
+
+    fetchMiddleware = async (ctx, next) => {
         await next()
         const fetch = this.fetchExec
         const { request: { url, options }, response } = ctx
@@ -26,7 +27,6 @@ export default class FetchPlus {
         ctx.data = res
         ctx.response = response
     }
-
     middlewares = []
 
     constructor(options?: ConstructArgs) {
