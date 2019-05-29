@@ -12,4 +12,4 @@ export default (options?) => async (ctx, next) => {
 		}
 	}
 	ctx.data = responseData || await response.data()
-} 
+}

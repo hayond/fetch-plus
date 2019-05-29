@@ -60,4 +60,4 @@ export default class FetchPlus {
         return { request, response, data: null, fetchPlus: this }
     }
 
-} 
+}

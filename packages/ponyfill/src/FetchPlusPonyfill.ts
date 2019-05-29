@@ -18,6 +18,6 @@ function getFetch() {
 	fetch.instance = instance
 	fetch.use = instance.use.bind(instance)
 	return fetch
-} 
+}
 
 export const fetch = getFetch()
