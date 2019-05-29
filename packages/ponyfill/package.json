@@ -1,6 +1,6 @@
 {
   "name": "@fetch-plus/ponyfill",
-  "version": "1.1.4",
+  "version": "1.1.6",
   "description": "",
   "main": "dist/FetchPlusPonyfill",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "jane.gao",
   "license": "MIT",
   "dependencies": {
-    "@fetch-plus/core": "^1.1.4",
+    "@fetch-plus/core": "^1.1.6",
     "@fetch-plus/plugins": "^1.1.4",
     "fetch-ponyfill": "^6.0.2"
   },
