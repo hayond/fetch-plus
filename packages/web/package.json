@@ -19,6 +19,9 @@
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
-  "gitHead": "3499f0b5547769e94cd221f18e55370a04452057"
+  "gitHead": "b8eec7db4fcf2567c177141238e0e8cdbc09170e"
 }

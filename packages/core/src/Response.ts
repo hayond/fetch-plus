@@ -15,7 +15,7 @@ export default class Response {
 	is(...types) {
 		const contentType = this.header('Content-Type')
 		return types.some(type => !!typeis(contentType, type))
-	}
+	} 
 
 	data() {
 		const contentType = this.header('Content-Type')

@@ -14,5 +14,8 @@
     "@fetch-plus/plugins": "^1.1.2",
     "fetch-ponyfill": "^6.0.2"
   },
-  "gitHead": "3499f0b5547769e94cd221f18e55370a04452057"
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "b8eec7db4fcf2567c177141238e0e8cdbc09170e"
 }
