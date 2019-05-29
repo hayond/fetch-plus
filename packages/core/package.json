@@ -9,10 +9,12 @@
   },
   "author": "jane.gao",
   "dependencies": {
-    "@types/koa-compose": "^3.2.4",
-    "@types/type-is": "^1.6.2",
     "koa-compose": "^4.1.0",
     "type-is": "^1.6.18"
+  },
+  "devDependencies": {
+    "@types/koa-compose": "^3.2.4",
+    "@types/type-is": "^1.6.2"
   },
   "publishConfig": {
     "access": "public"
