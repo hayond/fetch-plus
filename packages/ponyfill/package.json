@@ -1,0 +1,17 @@
+{
+  "name": "@fetch-plus/ponyfill",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/FetchPlusPonyfill",
+  "scripts": {
+    "build": "npx tsc -d",
+    "watch": "npx tsc -d -w"
+  },
+  "author": "jane.gao",
+  "license": "MIT",
+  "dependencies": {
+    "fetch-ponyfill": "^6.0.2",
+    "@fetch-plus/core": "^1.0.0",
+    "@fetch-plus/plugins": "^1.0.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "fetch-p",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index",
+  "scripts": {
+    "watch": "webpack --mode=development --watch & serve",
+    "build": "webpack -p"
+  },
+  "author": "jane.gao",
+  "dependencies": {
+    "@fetch-plus/ponyfill": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "serve": "^11.0.1"
+  },
+  "license": "MIT"
+}

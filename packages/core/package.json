@@ -1,0 +1,20 @@
+{
+  "name": "@fetch-plus/core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/FetchPlus",
+  "scripts": {
+    "build": "npx tsc -d",
+    "watch": "npx tsc -d -w"
+  },
+  "author": "jane.gao",
+  "dependencies": {
+    "koa-compose": "^4.1.0",
+    "type-is": "^1.6.18"
+  },
+  "devDependencies": {
+    "@types/koa-compose": "^3.2.4",
+    "@types/type-is": "^1.6.2"
+  },
+  "license": "MIT"
+}

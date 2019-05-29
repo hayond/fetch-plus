@@ -2,6 +2,8 @@ import { is as typeis } from 'type-is'
 
 export default class Response {
 
+	res
+
 	constructor(res) {
 		this.res = res
 	}
@@ -12,7 +14,7 @@ export default class Response {
 
 	is(...types) {
 		const contentType = this.header('Content-Type')
-		return types.some(type => typeis(contentType, type))
+		return types.some(type => !!typeis(contentType, type))
 	}
 
 	data() {
@@ -48,15 +50,15 @@ export default class Response {
 	}
 
 	get redirected() {
-		return this.res.redirected	
+		return this.res.redirected
 	}
 
 	get status() {
-		return this.res.status	
+		return this.res.status
 	}
 
 	get bodyUsed() {
-		return this.res.bodyUsed	
+		return this.res.bodyUsed
 	}
 
 }

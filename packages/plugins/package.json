@@ -1,0 +1,20 @@
+{
+  "name": "@fetch-plus/plugins",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/DefaultPlugins",
+  "scripts": {
+    "build": "npx tsc -d",
+    "watch": "npx tsc -d -w"
+  },
+  "author": "jane.gao",
+  "license": "MIT",
+  "dependencies": {
+    "@ungap/url-search-params": "^0.1.2",
+    "url-join": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/ungap__url-search-params": "^0.1.0",
+    "@types/url-join": "^4.0.0"
+  }
+}

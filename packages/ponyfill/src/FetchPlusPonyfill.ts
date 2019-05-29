@@ -1,10 +1,10 @@
 import fetchPonyfill from 'fetch-ponyfill'
-import FetchPlus from './FetchPlus'
-import defaultPlugins from './plugins/DefaultPlugins'
+import FetchPlus, { ConstructArgs } from '@fetch-plus/core'
+import defaultPlugins from '@fetch-plus/plugins'
 
 export default class FetchPlusPonyfill extends FetchPlus {
 
-	constructor(options = {}) {
+	constructor(options:ConstructArgs = {}) {
 		options.fetch = (options && options.fetch) || fetchPonyfill().fetch
 		super(options)
 	}
