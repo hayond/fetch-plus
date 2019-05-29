@@ -9,7 +9,7 @@
   },
   "author": "jane.gao",
   "dependencies": {
-    "@fetch-plus/ponyfill": "^1.0.3"
+    "@fetch-plus/ponyfill": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
