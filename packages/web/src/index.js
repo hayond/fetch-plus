@@ -1,1 +1,1 @@
-module.exports = require("@fetch-plus/ponyfill") 
+module.exports = require("@fetch-plus/ponyfill")

@@ -1,5 +1,5 @@
 
-const dataTypeMethods = ['json', 'text', 'blob']
+const dataTypeMethods = ['json', 'text', 'blob'] 
 
 export default (options?) => async (ctx, next) => {
 	await next()

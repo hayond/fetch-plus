@@ -9,7 +9,7 @@ export default class FetchPlusPonyfill extends FetchPlus {
 		super(options)
 	}
 
-} 
+}
 
 function getFetch() {
 	const instance = new FetchPlusPonyfill()
