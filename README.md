@@ -6,6 +6,8 @@ koa style middleware for Fetch API on browser and nodejs
 
 ```
 npm install @fetch-plus/ponyfill --save
+// for browser
+// npm install @fetch-plus/web --save
 ```
 
 ### Usage
