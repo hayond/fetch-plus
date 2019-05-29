@@ -1,40 +1,12 @@
 {
-  "name": "fetch-p",
-  "version": "1.0.2",
-  "description": "",
-  "main": "dist/FetchPlusPonyfill.js",
-  "config": {
-    "src": "./src",
-    "dist": "./dist"
-  },
+  "name": "fetch-plus",
+  "private": true,
   "scripts": {
-    "clean": "rm -rf $npm_package_config_dist",
-    "build": "npx babel $npm_package_config_src --out-dir $npm_package_config_dist --copy-files",
-    "test": "npm run build && node ./test",
-    "debug": "npm run build && node --inspect-brk ./test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/touwaka/fetch-plus.git"
-  },
-  "homepage": "https://github.com/touwaka/fetch-plus#readme",
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "@babel/runtime": "^7.4.3",
-    "@ungap/url-search-params": "^0.1.2",
-    "fetch-ponyfill": "^6.0.2",
-    "koa-compose": "^4.1.0",
-    "type-is": "^1.6.16",
-    "url-join": "^4.0.0"
+    "init": "npx lerna bootstrap",
+    "build": "npx lerna run --stream build",
+    "watch": "npx lerna run --parallel watch"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
-    "@babel/plugin-transform-modules-commonjs": "^7.4.3",
-    "@babel/plugin-transform-runtime": "^7.4.3",
-    "@babel/preset-env": "^7.4.3"
+    "lerna": "^3.14.1"
   }
 }
