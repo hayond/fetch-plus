@@ -15,8 +15,7 @@ export interface ConstructArgs {
 
 export default class FetchPlus {
 
-    private fetchExec
-
+    fetchExec
     fetchMiddleware = async (ctx, next) => {
         await next()
         const fetch = this.fetchExec
