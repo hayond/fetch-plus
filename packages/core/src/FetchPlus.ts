@@ -1,4 +1,4 @@
-import compose, { Middleware } from 'koa-compose'
+import compose from 'koa-compose'
 import Request from './Request'
 import Response from './Response' 
 
@@ -35,7 +35,7 @@ export default class FetchPlus {
         return this.innerFetch({ url, options })
     }
 
-    use(fn: Middleware<Context> | Middleware<Context>[], index?: number): void {
+    use(fn: Function | Function[], index?: number): void {
         if (Array.isArray(fn)) {
             fn.forEach(fnItem => this.use(fnItem, index))
             return
