@@ -4,7 +4,8 @@
   "scripts": {
     "init": "npx lerna bootstrap",
     "build": "npx lerna run --stream build",
-    "watch": "npx lerna run --parallel watch"
+    "watch": "npx lerna run --parallel watch",
+    "publish": "npx lerna publish"
   },
   "devDependencies": {
     "lerna": "^3.14.1"

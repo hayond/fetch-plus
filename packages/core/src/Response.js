@@ -1,8 +1,8 @@
-import { is as typeis } from 'type-is'
+import { is as typeis } from './type-is'
 
 export default class Response {
 
-	res
+	res = {}
 
 	constructor(res) {
 		this.res = res
