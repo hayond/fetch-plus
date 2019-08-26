@@ -1,12 +1,12 @@
-import { is as typeis } from 'type-is'
+import { is as typeis } from './type-is'
 
 export default class Request {
 
     static fetchOptionNames = ['method', 'headers', 'body', 'mode', 'credentials',
         'cache', 'redirect', 'referrer', 'integrity']
 
-    originalReq
-    req
+    originalReq = {}
+    req = {}
 
     constructor(originalReq) {
         if (originalReq) {
@@ -17,7 +17,7 @@ export default class Request {
         }
     }
 
-    header(name, value?) {
+    header(name, value) {
         const headers = this.headers || {}
         if (!value) {
             let headerValue
