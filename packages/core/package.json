@@ -11,7 +11,7 @@
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "koa-compose": "^4.1.0",
-    "media-typer": "^1.1.0",
+    "media-typer": "0.3.0",
     "mime-db": "^1.40.0"
   },
   "devDependencies": {
