@@ -3,7 +3,7 @@ import { is as typeis } from './type-is'
 export default class Request {
 
     static fetchOptionNames = ['method', 'headers', 'body', 'mode', 'credentials',
-        'cache', 'redirect', 'referrer', 'integrity']
+        'cache', 'redirect', 'referrer', 'integrity', 'signal']
 
     originalReq = {}
     req = {}
@@ -128,6 +128,14 @@ export default class Request {
 
     set integrity(value) {
         this.req.integrity = value
+    }
+
+    get signal() {
+        return this.req.signal
+    }
+
+    set signal(value) {
+        this.req.signal = value
     }
 
 }

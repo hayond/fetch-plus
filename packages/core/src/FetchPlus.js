@@ -4,6 +4,9 @@ import Response from './Response'
 
 export default class FetchPlus {
 
+    static Request = Request
+    static Response = Response
+
     fetchExec = null
     fetchMiddleware = async (ctx, next) => {
         await next()

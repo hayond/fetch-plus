@@ -14,6 +14,7 @@
   <script src="dist/index.js"></script>
   <script type="text/javascript">
     const fetch = FetchPlus.fetch
+    const controller = new AbortController()
 
     fetch.use(async (ctx, next) => {
     const { request } = ctx
@@ -21,12 +22,16 @@
       await next()
     })
 
-    fetch('react', { 
+    fetch('react@16.9.0/index.js?meta=true', { 
       // dataType: 'json',
-      search: { meta: true }
+      search: { meta: true },
+      signal: controller.signal
     }).then(data => {
       console.log(data)
+    }).catch(err => {
+      console.log(err)
     })
+    controller.abort()
   </script>
 </body>
 </html>
