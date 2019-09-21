@@ -1,6 +1,6 @@
 {
   "name": "@fetch-plus/plugins",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "description": "",
   "main": "dist/DefaultPlugins",
   "scripts": {
@@ -12,10 +12,10 @@
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "@ungap/url-search-params": "^0.1.2",
-    "url-join": "^4.0.0",
     "media-typer": "0.3.0",
     "mime-db": "^1.40.0",
-    "path-browserify": "^1.0.0"
+    "path-browserify": "^1.0.0",
+    "url-join": "^4.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
