@@ -9,5 +9,15 @@ export default options => async (ctx, next) => {
 			return types.some(type => !!typeis(contentType, type))
 		}).bind(obj)
 	})
+	response.data = (function () {
+		const contentType = this.header('Content-Type')
+		if (this.is(contentType, 'application/json')) {
+			return this.json()
+		} else if (this.is(contentType, 'text/plain')) {
+			return this.text()
+		} else {
+			return Promise.resolve(this.res)
+		}
+	}).bind(response)
 	await next()
 } 
