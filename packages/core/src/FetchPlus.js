@@ -4,6 +4,9 @@ import Response from './Response'
 
 export default class FetchPlus {
 
+    static Request = Request
+    static Response = Response
+
     fetchExec = null
     fetchMiddleware = async (ctx, next) => {
         await next()
@@ -15,12 +18,13 @@ export default class FetchPlus {
     }
     middlewares = []
 
-    constructor(options) {
-        this.fetchExec = (options && options.fetch) || (typeof fetch === 'function' && fetch)
+    constructor(options={}) {
+        this.fetchExec = options.fetch || (typeof fetch === 'function' && fetch)
         if (!this.fetchExec) throw new TypeError('main fetch exec needed!')
+        options.plugins && this.use(options.plugins)
     }
 
-    fetch(url, options = {}) {
+    fetch(url, options={}) {
         return this.innerFetch({ url, options })
     }
 

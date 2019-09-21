@@ -5,7 +5,7 @@ const TYPE_JSON = 'application/json'
 const TYPE_FORM = 'application/x-www-form-urlencoded'
 const TYPE_MULTIPART = 'multipart/form-data'
 
-export default (options?) => async (ctx, next) => {
+export default options => async (ctx, next) => {
 	const { request } = ctx
 	const { url, method, body, req: { search, type } } = request
 	if (search) {
@@ -19,6 +19,7 @@ export default (options?) => async (ctx, next) => {
 		contentType && (request.header('Content-Type', contentType))
 	}
 	if ((method === 'POST' || method === 'PUT') 
+		&& typeof request.is === 'function'
 		&& typeof body === 'object' && Object.getPrototypeOf(body) === Object.prototype) {
 		if (!request.header('Content-Type') || request.is(TYPE_JSON)) {
 			request.body = JSON.stringify(body)
@@ -26,7 +27,7 @@ export default (options?) => async (ctx, next) => {
 			request.body = new URLSearchParams(body).toString()
 		} else if (request.is(TYPE_MULTIPART) && typeof FormData === 'function') {
 			const formData = new FormData()
-			Object.entries(body).forEach(([key, value]: [string, string | Blob]) => formData.append(key, value))
+			Object.entries(body).forEach(([key, value]) => formData.append(key, value))
 			request.body = formData
 		}
 	}

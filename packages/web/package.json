@@ -1,15 +1,16 @@
 {
   "name": "@fetch-plus/web",
-  "version": "1.1.11",
+  "version": "1.1.13",
   "description": "",
-  "main": "index",
+  "main": "./dist/FetchPlusPonyfill",
   "scripts": {
-    "watch": "webpack --mode=development --watch & serve",
+    "watch": "serve & webpack --mode=development --watch",
     "build": "webpack -p"
   },
   "author": "jane.gao",
   "dependencies": {
-    "@fetch-plus/ponyfill": "^1.1.11"
+    "@fetch-plus/core": "^1.1.13",
+    "@fetch-plus/ponyfill": "^1.1.13"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
