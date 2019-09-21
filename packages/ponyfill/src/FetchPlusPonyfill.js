@@ -6,7 +6,7 @@ export default class FetchPlusPonyfill extends FetchPlus {
 
 	constructor(options={}) {
 		options.fetch = options.fetch || fetchPonyfill().fetch
-		options.plugins ? (options.plugins = defaultPlugins.concat(options.plugins)) : defaultPlugins
+		options.plugins = options.plugins ? defaultPlugins.concat(options.plugins) : defaultPlugins
 		super(options)
 	}
 
@@ -14,7 +14,6 @@ export default class FetchPlusPonyfill extends FetchPlus {
 
 function getFetch() {
 	const instance = new FetchPlusPonyfill()
-	instance.use(defaultPlugins)
 	const fetch = instance.fetch.bind(instance)
 	fetch.instance = instance
 	fetch.use = instance.use.bind(instance)
