@@ -34,7 +34,7 @@ export default class FetchPlus {
             return
         }
         if (typeof fn !== 'function') throw new TypeError('middleware must be a function!')
-        index ? this.middlewares.splice(index, 0, fn) : this.middlewares.push(fn)
+        index !== undefined ? this.middlewares.splice(index, 0, fn) : this.middlewares.push(fn)
     }
 
     async innerFetch(req) {
