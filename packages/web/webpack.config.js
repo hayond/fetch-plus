@@ -4,7 +4,8 @@ const CWD = process.cwd()
 
 module.exports = {
     entry: {
-        index: './src/index'
+        FetchPlusPonyfill: './src/FetchPlusPonyfill',
+        FetchPlus: './src/FetchPlus',
     },
     output: {
         path: `${CWD}/dist`,

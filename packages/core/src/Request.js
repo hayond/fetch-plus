@@ -1,4 +1,3 @@
-import { is as typeis } from './type-is'
 
 export default class Request {
 
@@ -18,7 +17,8 @@ export default class Request {
     }
 
     header(name, value) {
-        const headers = this.headers || {}
+        this.headers || (this.headers = {})
+        const headers = this.headers
         if (!value) {
             let headerValue
             Object.keys(headers).some(headerName => {
@@ -37,11 +37,6 @@ export default class Request {
             }) || (headers[name] = value)
             return value
         }
-    }
-
-    is(...types) {
-        const contentType = this.header('Content-Type')
-        return types.some(type => !!typeis(contentType, type))
     }
 
     get options() {

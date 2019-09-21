@@ -5,14 +5,12 @@
   "main": "dist/FetchPlus",
   "scripts": {
     "build": "npx babel ./src --out-dir ./dist --copy-files",
-    "watch": "npx tsc -d -w"
+    "watch": "npx babel ./src --watch --out-dir ./dist --copy-files"
   },
   "author": "jane.gao",
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "koa-compose": "^4.1.0",
-    "media-typer": "0.3.0",
-    "mime-db": "^1.40.0"
+    "koa-compose": "^4.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",

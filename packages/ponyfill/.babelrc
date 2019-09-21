@@ -1,0 +1,10 @@
+{
+	"plugins": [
+		"@babel/plugin-transform-runtime",
+		"@babel/plugin-transform-modules-commonjs",
+		"@babel/plugin-proposal-class-properties",
+		"@babel/plugin-transform-destructuring",
+		"@babel/plugin-transform-async-to-generator",
+		"@babel/plugin-transform-regenerator",
+	]
+} 

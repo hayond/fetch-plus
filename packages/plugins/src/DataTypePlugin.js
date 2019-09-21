@@ -1,7 +1,7 @@
 
 const dataTypeMethods = ['json', 'text', 'blob'] 
 
-export default (options?) => async (ctx, next) => {
+export default options => async (ctx, next) => {
 	await next()
 	const { request: { req: { dataType } }, response } = ctx
 	let responseData

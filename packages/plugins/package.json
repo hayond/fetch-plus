@@ -1,21 +1,31 @@
 {
   "name": "@fetch-plus/plugins",
-  "version": "1.1.10",
+  "version": "1.1.12",
   "description": "",
-  "main": "lib/DefaultPlugins",
+  "main": "dist/DefaultPlugins",
   "scripts": {
-    "build": "npx tsc -d",
-    "watch": "npx tsc -d -w"
+    "build": "npx babel ./src --out-dir ./dist --copy-files",
+    "watch": "npx babel ./src --watch --out-dir ./dist --copy-files"
   },
   "author": "jane.gao",
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime": "^7.5.5",
     "@ungap/url-search-params": "^0.1.2",
-    "url-join": "^4.0.0"
+    "url-join": "^4.0.0",
+    "media-typer": "0.3.0",
+    "mime-db": "^1.40.0",
+    "path-browserify": "^1.0.0"
   },
   "devDependencies": {
-    "@types/ungap__url-search-params": "^0.1.0",
-    "@types/url-join": "^4.0.0"
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-async-to-generator": "^7.5.0",
+    "@babel/plugin-transform-destructuring": "^7.5.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.5.0",
+    "@babel/plugin-transform-regenerator": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.5.5"
   },
   "publishConfig": {
     "access": "public"

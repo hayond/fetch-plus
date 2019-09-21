@@ -22,8 +22,14 @@
       await next()
     })
 
-    fetch('react@16.9.0/index.js?meta=true', { 
+    fetch('react@16.9.0/index.js', { 
       // dataType: 'json',
+      // method: 'POST',
+      // type: 'form',
+      // body: {
+      //   x: 1,
+      //   y: 1
+      // },
       search: { meta: true },
       signal: controller.signal
     }).then(data => {

@@ -1,4 +1,3 @@
-import { is as typeis } from './type-is'
 
 export default class Response {
 
@@ -11,11 +10,6 @@ export default class Response {
 	header(name) {
 		return this.headers.get ? this.headers.get(name.toLowerCase()) : ''
 	}
-
-	is(...types) {
-		const contentType = this.header('Content-Type')
-		return types.some(type => !!typeis(contentType, type))
-	} 
 
 	data() {
 		const contentType = this.header('Content-Type')

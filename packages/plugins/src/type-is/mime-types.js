@@ -13,7 +13,7 @@
  */
 
 var db = require('mime-db')
-var extname = require('./path').extname
+var extname = require('path-browserify').extname
 
 /**
  * Module variables.
