@@ -11,5 +11,5 @@ export default options => async (ctx, next) => {
 			responseData = data
 		}
 	}
-	ctx.data = responseData || await response.data()
+	ctx.data = responseData || (typeof response.data === 'function' ? await response.data() : response.res)
 } 
