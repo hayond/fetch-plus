@@ -17,11 +17,13 @@ export default options => async (ctx, next) => {
 			: type === 'form' ? TYPE_FORM 
 			: type === 'multipart' ? TYPE_MULTIPART : ''
 		contentType && (request.header('Content-Type', contentType))
+	} else if (!request.header('Content-Type')) {
+		request.header('Content-Type', TYPE_JSON)
 	}
 	if ((method === 'POST' || method === 'PUT') 
 		&& typeof request.is === 'function'
 		&& typeof body === 'object' && Object.getPrototypeOf(body) === Object.prototype) {
-		if (!request.header('Content-Type') || request.is(TYPE_JSON)) {
+		if (request.is(TYPE_JSON)) {
 			request.body = JSON.stringify(body)
 		} else if (request.is(TYPE_FORM)) {
 			request.body = new URLSearchParams(body).toString()
