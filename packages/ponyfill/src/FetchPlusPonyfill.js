@@ -1,6 +1,7 @@
 import fetchPonyfill from 'fetch-ponyfill'
 import FetchPlus from '@fetch-plus/core'
 import defaultPlugins from '@fetch-plus/plugins'
+export { basePlugin } from '@fetch-plus/plugins'
 
 export default class FetchPlusPonyfill extends FetchPlus {
 
@@ -21,3 +22,4 @@ function getFetch() {
 } 
 
 export const fetch = getFetch()
+
