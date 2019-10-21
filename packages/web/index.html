@@ -14,30 +14,19 @@
   <script src="dist/FetchPlusPonyfill.js"></script>
   <script type="text/javascript">
     const fetch = FetchPlus.fetch
-    const controller = new AbortController()
+    const basePlugin = FetchPlus.basePlugin
 
-    fetch.use(async (ctx, next) => {
-    const { request } = ctx
-      request.url = `https://unpkg.com/${request.url}`
-      await next()
-    })
+    fetch.use(basePlugin({
+      baseUrl: 'https://unpkg.com',
+      search: {},
+      body: {}
+    }), 0)
 
     fetch('react@16.9.0/index.js', { 
-      // dataType: 'json',
-      // method: 'POST',
-      // type: 'form',
-      // body: {
-      //   x: 1,
-      //   y: 1
-      // },
-      search: { meta: true },
-      signal: controller.signal
+      search: { meta: true }
     }).then(data => {
       console.log(data)
-    }).catch(err => {
-      console.log(err)
     })
-    controller.abort()
   </script>
 </body>
 </html>

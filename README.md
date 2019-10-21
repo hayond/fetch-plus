@@ -51,12 +51,20 @@ index is the order in the middleware list, default will push to the end
 
 #### FetchPlusPonyfill
 ```js
-import FetchPlusPonyfill, { fetch } from  '@fetch-plus/ponyfill'
+import FetchPlusPonyfill, { fetch, basePlugin } from  '@fetch-plus/ponyfill'
 // import searchBodyPlugin from '@fetch-plus/plugins/lib/SearchBodyPlugin'
 
-const FetchPlus = new FetchPlusPonyfill()
+const fetchPlus = new FetchPlusPonyfill()
+
+// use basePlugin to add baseUrl, baseSearch, baseBody and so on.
+fetchPlus.use(basePlugin({
+	baseUrl: 'https://unpkg.com',
+	search: {},
+	body: {}
+}), 0)
+
 // FetchPlus.use(searchBodyPlugin()) // Aleady in FetchPlusPonyfill!
-FetchPlus.fetch('https://unpkg.com/react', { dataType: 'text' })
+fetchPlus.fetch('react', { dataType: 'text' })
 ```
 method fetch is the shortcut of the FetchPlusPonyfill instance, with default inner plugins:
 - DataTypePlugin
