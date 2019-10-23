@@ -13,5 +13,5 @@ export default (options={}) => async (ctx, next) => {
 	oType && !type && (req.type = oType)
 	oDataType && !dataType && (req.dataType = oDataType)
 
-	await next()
+	await next()    
 } 
