@@ -59,8 +59,7 @@ const fetchPlus = new FetchPlusPonyfill()
 // use basePlugin to add baseUrl, baseSearch, baseBody and so on.
 fetchPlus.use(basePlugin({
 	baseUrl: 'https://unpkg.com',
-	search: {},
-	body: {}
+	search: {}
 }), 0)
 
 fetch.use(async (ctx, next) => {
