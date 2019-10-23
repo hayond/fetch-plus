@@ -7,8 +7,8 @@ export default (options={}) => async (ctx, next) => {
 	const { search, method, type, dataType } = req
 
 	baseUrl && (request.url = urlJoin(baseUrl, url))
-	oSearch && typeof search === 'object' && (req.search = Object.assign({}, oSearch, search))
-	oBody && typeof body === 'object' && (request.body = Object.assign({}, oBody, body))
+	oSearch && typeof oSearch === 'object' && (req.search = Object.assign({}, oSearch, search))
+	oBody && typeof oBody === 'object' && (request.body = Object.assign({}, oBody, body))
 	oMethod && !method && (req.method = oMethod)
 	oType && !type && (req.type = oType)
 	oDataType && !dataType && (req.dataType = oDataType)
