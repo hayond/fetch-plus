@@ -63,6 +63,12 @@ fetchPlus.use(basePlugin({
 	body: {}
 }), 0)
 
+fetch.use(async (ctx, next) => {
+	const { request } = ctx
+	// some middleware logic
+	await next()
+})
+
 // FetchPlus.use(searchBodyPlugin()) // Aleady in FetchPlusPonyfill!
 fetchPlus.fetch('react', { dataType: 'text' })
 ```
