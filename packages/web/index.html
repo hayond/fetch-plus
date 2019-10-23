@@ -18,12 +18,12 @@
 
     fetch.use(basePlugin({
       baseUrl: 'https://unpkg.com',
-      search: {},
+      search: { meta: true },
       body: {}
     }), 0)
 
     fetch('react@16.9.0/index.js', { 
-      search: { meta: true }
+      search: {}
     }).then(data => {
       console.log(data)
     })

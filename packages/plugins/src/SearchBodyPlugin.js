@@ -8,7 +8,7 @@ const TYPE_MULTIPART = 'multipart/form-data'
 export default options => async (ctx, next) => {
 	const { request } = ctx
 	const { url, method, body, req: { search, type } } = request
-	if (search) {
+	if (search && Object.keys(search).length > 0) {
 		const searchString = `?${new URLSearchParams(search)}`
 		request.url = urlJoin(url, searchString)
 	}
