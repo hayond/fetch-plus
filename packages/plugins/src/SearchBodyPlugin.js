@@ -12,13 +12,11 @@ export default options => async (ctx, next) => {
 		const searchString = `?${new URLSearchParams(search)}`
 		request.url = urlJoin(url, searchString)
 	}
-	if (type) {
+	if ((method === 'POST' || method === 'PUT') && type) {
 		const contentType = type === 'json' ? TYPE_JSON 
 			: type === 'form' ? TYPE_FORM 
 			: type === 'multipart' ? TYPE_MULTIPART : ''
 		contentType && (request.header('Content-Type', contentType))
-	} else if (!request.header('Content-Type')) {
-		request.header('Content-Type', TYPE_JSON)
 	}
 	if ((method === 'POST' || method === 'PUT') 
 		&& typeof request.is === 'function'
@@ -31,6 +29,9 @@ export default options => async (ctx, next) => {
 			const formData = new FormData()
 			Object.entries(body).forEach(([key, value]) => formData.append(key, value))
 			request.body = formData
+		} else if (!request.header('Content-Type')) {
+			request.header('Content-Type', TYPE_JSON)
+			request.body = JSON.stringify(body)
 		}
 	}
 	await next()
