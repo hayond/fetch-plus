@@ -1,6 +1,9 @@
 import compose from 'koa-compose'
 import Request from './Request'
 import Response from './Response' 
+import FakePromise from './FakePromise'
+
+export class InterruptError extends Error { }
 
 export default class FetchPlus {
 
@@ -25,16 +28,23 @@ export default class FetchPlus {
     }
 
     fetch(url, options={}) {
-        return this.innerFetch({ url, options })
+        const innerFetchPromise = this.innerFetch({ url, options })
+        return new FakePromise(innerFetchPromise, {
+            catch(error) {
+                if (error instanceof InterruptError) return false
+                return error
+            }
+        })
     }
 
     use(fn, index) {
         if (Array.isArray(fn)) {
             fn.forEach(fnItem => this.use(fnItem, index))
-            return
+            return this
         }
         if (typeof fn !== 'function') throw new TypeError('middleware must be a function!')
         index !== undefined ? this.middlewares.splice(index, 0, fn) : this.middlewares.push(fn)
+        return this
     }
 
     async innerFetch(req) {
@@ -47,7 +57,11 @@ export default class FetchPlus {
     createContext(req, res) {
         const request = new Request(req)
         const response = new Response(res)
-        return { request, response, data: null, fetchPlus: this }
+        return { request, response, data: null, fetchPlus: this, interrupt: this.interrupt.bind(this) }
+    }
+
+    interrupt() {
+        throw new InterruptError('interrupt fetch')
     }
 
 }
