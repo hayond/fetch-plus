@@ -36,6 +36,20 @@ export class FetchPlusPonyfill extends FetchPlus {
             options.responseType = responseType
             const res = await fetch(url, options)
             res.headers = res.header
+            Object.assign(response, {
+                header(name) {
+                    return res.header[name] || ''
+                },
+                json() {
+                    return res.data
+                },
+                blob() {
+                    return res.data
+                },
+                text() {
+                    return res.data
+                }
+            })
             response.res = res
             response.ctx = ctx
             ctx.data = res
