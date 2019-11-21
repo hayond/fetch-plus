@@ -8,7 +8,7 @@
     "watch": "npx babel ./src --watch --out-dir ./dist --copy-files"
   },
   "author": "jane.gao",
-  "license": "MIT",
+  "license": "MIT", 
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "@ungap/url-search-params": "^0.1.2",

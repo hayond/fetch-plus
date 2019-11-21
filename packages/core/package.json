@@ -1,5 +1,5 @@
 {
-  "name": "@fetch-plus/core",
+  "name": "@fetch-plus/core", 
   "version": "1.2.3",
   "description": "",
   "main": "dist/FetchPlus",
