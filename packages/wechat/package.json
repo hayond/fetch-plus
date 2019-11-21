@@ -1,0 +1,39 @@
+{
+  "name": "@fetch-plus/wechat",
+  "version": "1.1.23",
+  "description": "",
+  "main": "./dist/FetchPlusPonyfill",
+  "scripts": {
+    "watch": "webpack --mode=development --watch",
+    "build": "webpack -p"
+  },
+  "author": "jane.gao",
+  "dependencies": {
+    "@babel/runtime": "7.3.4",
+    "koa-compose": "^4.1.0",
+    "@ungap/url-search-params": "^0.1.2",
+    "media-typer": "0.3.0",
+    "mime-db": "^1.40.0",
+    "path-browserify": "^1.0.0",
+    "path-to-regexp": "^4.0.2",
+    "url-join": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-async-to-generator": "^7.5.0",
+    "@babel/plugin-transform-destructuring": "^7.5.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.5.0",
+    "@babel/plugin-transform-regenerator": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "gitHead": "65ac418ad3581aee3e082e50722eb0e5dc3c998a"
+}
