@@ -1,7 +1,7 @@
 {
   "name": "@fetch-plus/wechat",
-  "version": "1.2.3",
-  "description": "", 
+  "version": "1.2.4",
+  "description": "",
   "main": "./dist/FetchPlusPonyfill",
   "scripts": {
     "watch": "webpack --mode=development --watch",

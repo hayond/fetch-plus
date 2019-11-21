@@ -1,6 +1,6 @@
 {
-  "name": "@fetch-plus/core", 
-  "version": "1.2.3",
+  "name": "@fetch-plus/core",
+  "version": "1.2.4",
   "description": "",
   "main": "dist/FetchPlus",
   "scripts": {
