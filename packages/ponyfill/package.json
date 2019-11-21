@@ -1,6 +1,6 @@
 {
   "name": "@fetch-plus/ponyfill",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "main": "dist/FetchPlusPonyfill",
   "scripts": {
@@ -11,8 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@fetch-plus/core": "^1.2.0",
-    "@fetch-plus/plugins": "^1.2.0",
+    "@fetch-plus/core": "^1.2.1",
+    "@fetch-plus/plugins": "^1.2.1",
     "fetch-ponyfill": "^6.0.2"
   },
   "devDependencies": {
