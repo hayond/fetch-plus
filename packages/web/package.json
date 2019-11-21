@@ -1,6 +1,6 @@
-{ 
+{
   "name": "@fetch-plus/web",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "",
   "main": "./dist/FetchPlusPonyfill",
   "scripts": {
@@ -9,8 +9,8 @@
   },
   "author": "jane.gao",
   "dependencies": {
-    "@fetch-plus/core": "^1.2.2",
-    "@fetch-plus/ponyfill": "^1.2.2"
+    "@fetch-plus/core": "^1.2.3",
+    "@fetch-plus/ponyfill": "^1.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
