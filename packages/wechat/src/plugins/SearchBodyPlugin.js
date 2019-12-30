@@ -19,7 +19,7 @@ function toURLSearchParamsString(params) {
 			searchParams.append(key, value)
 		} 
 	})
-	return searchParams.toString()
+	return searchParams.toString()  
 }
 
 export default options => async (ctx, next) => {
@@ -27,7 +27,15 @@ export default options => async (ctx, next) => {
 	const { url, method, body, req: { search, type } } = request
 	const clonedSearch = Object.assign({}, search)
 
-	const matchs = parse(url).map(token => token.name && typeof token.name === 'string' && token.name || '').filter(v => v)
+	const matchs = parse(url).map(token => typeof token.name === 'string' && token.name || '').filter(v => v)
+	// 兼容端口
+	matchs = matchs.filter(match => {
+		if (Number(match)) {
+			url = url.replace(`:${match}`, `\\:${match}`)
+			return false
+		}
+		return true
+	})
 	if (matchs.length > 0) {
 		const toPath = compile(url)
 		const matchObject = {}
