@@ -1,6 +1,6 @@
 import FetchPlus from './core/FetchPlus'
 import defaultPlugins from './plugins/DefaultPlugins'
-export { basePlugin } from './plugins/DefaultPlugins'
+import { basePlugin } from './plugins/DefaultPlugins'
 
 function promisify(api) {
 	return function (options = {}) {
@@ -62,7 +62,11 @@ function getFetch() {
 	const instance = new FetchPlusPonyfill()
 	const fetch = instance.fetch.bind(instance)
 	fetch.instance = instance
-	fetch.use = instance.use.bind(instance)
+    fetch.use = instance.use.bind(instance)
+    fetch.base = options => {
+		instance.use(basePlugin(options), 0)
+		return fetch
+	}
 	return fetch
 } 
 
