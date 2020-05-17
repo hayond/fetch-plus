@@ -1,5 +1,6 @@
 import URLSearchParams from '@ungap/url-search-params'
 import urlJoin from 'url-join'
+import URL from 'url-parse'
 import { parse, compile } from 'path-to-regexp'
 
 const TYPE_JSON = 'application/json'
@@ -19,7 +20,7 @@ function toURLSearchParamsString(params) {
 			searchParams.append(key, value)
 		} 
 	})
-	return searchParams.toString()
+	return searchParams.toString()  
 }
 
 export default options => async (ctx, next) => {
@@ -27,15 +28,27 @@ export default options => async (ctx, next) => {
 	const { url, method, body, req: { search, type } } = request
 	const clonedSearch = Object.assign({}, search)
 
-	const matchs = parse(url).map(token => token.name && typeof token.name === 'string' && token.name || '').filter(v => v)
+	// 新版本兼容‘http(s)://’及兼容端口
+	const { origin, pathname } = new URL(url)
+	url = pathname
+
+	const matchs = parse(url).map(token => typeof token.name === 'string' && token.name || '').filter(v => v)
+	// 兼容端口
+	// matchs = matchs.filter(match => {
+	// 	if (Number(match)) {
+	// 		url = url.replace(`:${match}`, `\\:${match}`)
+	// 		return false
+	// 	}
+	// 	return true
+	// })
 	if (matchs.length > 0) {
-		const toPath = compile(url)
+		const toPath = compile(url, { encode: encodeURIComponent })
 		const matchObject = {}
 		matchs.forEach(match => {
 			matchObject[match] = clonedSearch[match]
 			delete clonedSearch[match]
 		})
-		request.url = toPath(matchObject)
+		request.url = urlJoin(origin, toPath(matchObject))
 	}
 	if (Object.keys(clonedSearch).length > 0) {
 		const searchParamsString = toURLSearchParamsString(clonedSearch)

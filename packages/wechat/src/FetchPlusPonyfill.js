@@ -1,6 +1,6 @@
 import FetchPlus from './core/FetchPlus'
 import defaultPlugins from './plugins/DefaultPlugins'
-export { basePlugin } from './plugins/DefaultPlugins'
+import { basePlugin } from './plugins/DefaultPlugins'
 
 function promisify(api) {
 	return function (options = {}) {
@@ -36,6 +36,20 @@ export class FetchPlusPonyfill extends FetchPlus {
             options.responseType = responseType
             const res = await fetch(url, options)
             res.headers = res.header
+            Object.assign(response, {
+                header(name) {
+                    return res.header[name] || ''
+                },
+                json() {
+                    return res.data
+                },
+                blob() {
+                    return res.data
+                },
+                text() {
+                    return res.data
+                }
+            })
             response.res = res
             response.ctx = ctx
             ctx.data = res
@@ -48,7 +62,11 @@ function getFetch() {
 	const instance = new FetchPlusPonyfill()
 	const fetch = instance.fetch.bind(instance)
 	fetch.instance = instance
-	fetch.use = instance.use.bind(instance)
+    fetch.use = instance.use.bind(instance)
+    fetch.base = options => {
+		instance.use(basePlugin(options), 0)
+		return fetch
+	}
 	return fetch
 } 
 

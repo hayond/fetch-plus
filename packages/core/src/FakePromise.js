@@ -25,13 +25,17 @@ export default class FakePromise {
 			} else if (data instanceof Error) {
 				throw data
 			}
-		}).finally(data => {
-			if (options.finally) {
-				data = Reflect.apply(options.finally, this, [data])
-				if (data === false) return
-			}
-			return this.finallyCallback ? Reflect.apply(this.finallyCallback, this, [data]) : undefined
 		})
+		// 兼容finally
+		if (this.resultPromise.finally) {
+			this.resultPromise.finally(data => {
+				if (options.finally) {
+					data = Reflect.apply(options.finally, this, [data])
+					if (data === false) return
+				}
+				return this.finallyCallback ? Reflect.apply(this.finallyCallback, this, [data]) : undefined
+			})
+		}
 	} 
 
 	then(thenCallback) {

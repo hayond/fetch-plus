@@ -8,7 +8,7 @@
     html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
     #body { width: 100%; height: 100%; display: -webkit-box; display: flex; }
   </style>
-</head>   
+</head>    
 <body>
   <div id="body"></div>
   <script src="dist/FetchPlusPonyfill.js"></script>
@@ -16,11 +16,10 @@
     const fetch = FetchPlus.fetch
     const basePlugin = FetchPlus.basePlugin
 
-    fetch.use(basePlugin({
-      baseUrl: 'https://unpkg.com',
+    fetch.base({
+      baseUrl: 'https://unpkg.com:443',
       search: { meta: true },
-      body: {}
-    }), 0).use(async (ctx, next) => {
+    }).use(async (ctx, next) => {
       await next()
       // ctx.interrupt()
     })

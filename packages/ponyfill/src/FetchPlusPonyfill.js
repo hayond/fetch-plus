@@ -1,7 +1,7 @@
 import fetchPonyfill from 'fetch-ponyfill'
 import FetchPlus from '@fetch-plus/core'
 import defaultPlugins from '@fetch-plus/plugins'
-export { basePlugin } from '@fetch-plus/plugins'
+import { basePlugin } from '@fetch-plus/plugins'
 
 export default class FetchPlusPonyfill extends FetchPlus {
 
@@ -11,6 +11,11 @@ export default class FetchPlusPonyfill extends FetchPlus {
 		super(options)
 	}
 
+	base(options) {
+		this.use(basePlugin(options), 0)
+		return this
+	}
+
 } 
 
 function getFetch() {
@@ -18,6 +23,7 @@ function getFetch() {
 	const fetch = instance.fetch.bind(instance)
 	fetch.instance = instance
 	fetch.use = instance.use.bind(instance)
+	fetch.base = instance.base.bind(instance)
 	return fetch
 } 
 

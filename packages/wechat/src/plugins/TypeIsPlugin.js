@@ -5,15 +5,13 @@ export default options => async (ctx, next) => {
 	const objs = [request, response]
 	objs.forEach(obj => {
 		obj.is = (function (...types) {
-			const contentType = this.header('Content-Type')
-			return types.some(type => !!typeis(contentType, type))
+			return !!typeis(this.header('Content-Type'), types)
 		}).bind(obj)
 	})
 	response.data = (function () {
-		const contentType = this.header('Content-Type')
-		if (this.is(contentType, 'application/json')) {
+		if (this.is('application/json')) {
 			return this.json()
-		} else if (this.is(contentType, 'text/plain')) {
+		} else if (this.is('text/plain')) {
 			return this.text()
 		} else {
 			return Promise.resolve(this.res)

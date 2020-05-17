@@ -10,6 +10,6 @@ export default options => async (ctx, next) => {
 			const data = await response[dataType].call(response)
 			responseData = data
 		}
-	}
+	} 
 	ctx.data = responseData || (typeof response.data === 'function' ? await response.data() : response.res)
 } 
