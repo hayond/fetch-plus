@@ -1,0 +1,13 @@
+.DS_Store
+node_modules
+webpack.config.js
+.gitignore
+.babelrc
+tsconfig.json
+lerna-debug.log
+yarn.lock
+
+# custom
+test.js
+index.html
+

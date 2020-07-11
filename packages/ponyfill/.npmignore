@@ -1,0 +1,10 @@
+.DS_Store
+node_modules
+.gitignore
+.babelrc
+tsconfig.json
+lerna-debug.log
+yarn.lock
+
+# custom
+test.js

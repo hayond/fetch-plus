@@ -1,0 +1,14 @@
+{
+  "name": "fetch-plus",
+  "private": true,
+  "scripts": {
+    "init": "npx lerna bootstrap",
+    "build": "npx lerna run --stream build",
+    "watch": "npx lerna run --parallel watch",
+    "publish": "npx lerna publish"
+  },
+  "devDependencies": {
+    "lerna": "^3.21.0"
+  }  
+}
+  
