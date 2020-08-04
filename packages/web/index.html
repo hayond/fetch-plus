@@ -19,6 +19,15 @@
     fetch.base({
       baseUrl: 'https://unpkg.com:443',
       search: { meta: true },
+      pre(request, ctx, body, req) {
+        console.log('pre request')
+      },
+      post(response, ctx, data, req) {
+        console.log('post response')
+      },
+      catch(error) {
+        console.log('error occurred')
+      }
     }).use(async (ctx, next) => {
       await next()
       // ctx.interrupt()

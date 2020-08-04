@@ -1,4 +1,5 @@
 import urlJoin from 'url-join'
+import { InterruptError } from '@fetch-plus/core'
 
 const httpReg = /^https?:\/\//
 
@@ -23,7 +24,7 @@ export default (options={}) => async (ctx, next) => {
 		await next()    
 		post && Reflect.apply(post, null, [response, ctx, ctx.data, req])
 	} catch (error) {
-		catchFunc && Reflect.apply(catchFunc, null, [error])
+		!(error instanceof InterruptError) && catchFunc && Reflect.apply(catchFunc, null, [error])
 		throw error
 	}
 } 
