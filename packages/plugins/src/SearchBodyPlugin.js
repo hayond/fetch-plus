@@ -55,13 +55,13 @@ export default options => async (ctx, next) => {
 		request.url = urlJoin(request.url, `?${searchParamsString}`)
 	}
 
-	if ((method === 'POST' || method === 'PUT') && type) {
+	if ((method === 'POST' || method === 'PUT' || method === 'PATCH') && type) {
 		const contentType = type === 'json' ? TYPE_JSON 
 			: type === 'form' ? TYPE_FORM 
 			: type === 'multipart' ? TYPE_MULTIPART : ''
 		contentType && (request.header('Content-Type', contentType))
 	}
-	if ((method === 'POST' || method === 'PUT') 
+	if ((method === 'POST' || method === 'PUT' || method === 'PATCH') 
 		&& typeof request.is === 'function'
 		&& typeof body === 'object' && Object.getPrototypeOf(body) === Object.prototype) {
 		if (request.is(TYPE_JSON)) {
