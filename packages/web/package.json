@@ -1,6 +1,10 @@
 {
   "name": "@fetch-plus/web",
+<<<<<<< HEAD
   "version": "1.4.2",
+=======
+  "version": "1.3.7",
+>>>>>>> f5aaadd1a0ab988e1915fbc1e81da592aed7442a
   "description": "",
   "main": "./dist/FetchPlusPonyfill",
   "scripts": {
@@ -9,8 +13,13 @@
   },
   "author": "jane.gao",
   "dependencies": {
+<<<<<<< HEAD
     "@fetch-plus/core": "^1.4.2",
     "@fetch-plus/ponyfill": "^1.4.2"
+=======
+    "@fetch-plus/core": "^1.3.5",
+    "@fetch-plus/ponyfill": "^1.3.7"
+>>>>>>> f5aaadd1a0ab988e1915fbc1e81da592aed7442a
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

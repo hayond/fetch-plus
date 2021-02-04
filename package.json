@@ -9,6 +9,12 @@
   },
   "devDependencies": {
     "lerna": "^3.21.0"
+<<<<<<< HEAD
   }    
 }
   
+=======
+  }
+} 
+
+>>>>>>> f5aaadd1a0ab988e1915fbc1e81da592aed7442a

@@ -92,3 +92,7 @@ import FetchPlus from '@fetch-plus/core'
 ```
 base FetchPlus class without [fetch-ponyfill](https://github.com/qubyte/fetch-ponyfill) and [DefaultPlugins](https://github.com/touwaka/fetch-plus/blob/master/packages/plugins/src/DefaultPlugins.js)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f5aaadd1a0ab988e1915fbc1e81da592aed7442a

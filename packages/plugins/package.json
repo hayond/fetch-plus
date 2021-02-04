@@ -1,6 +1,10 @@
 {
   "name": "@fetch-plus/plugins",
+<<<<<<< HEAD
   "version": "1.4.2",
+=======
+  "version": "1.3.7",
+>>>>>>> f5aaadd1a0ab988e1915fbc1e81da592aed7442a
   "description": "",
   "main": "dist/DefaultPlugins",
   "scripts": {
@@ -11,6 +15,10 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.9.6",
+<<<<<<< HEAD
+=======
+    "@fetch-plus/core": "^1.3.5",
+>>>>>>> f5aaadd1a0ab988e1915fbc1e81da592aed7442a
     "@ungap/url-search-params": "^0.2.0",
     "media-typer": "0.3.0",
     "mime-db": "^1.44.0",

@@ -1,6 +1,10 @@
 {
   "name": "@fetch-plus/wechat",
+<<<<<<< HEAD
   "version": "1.4.2",
+=======
+  "version": "1.3.5",
+>>>>>>> f5aaadd1a0ab988e1915fbc1e81da592aed7442a
   "description": "",
   "main": "./dist/FetchPlusPonyfill",
   "scripts": {
