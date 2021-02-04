@@ -1,7 +1,7 @@
 {
   "name": "@fetch-plus/ponyfill",
-  "version": "1.4.0",
-  "description": "",  
+  "version": "1.4.1",
+  "description": "",
   "main": "dist/FetchPlusPonyfill",
   "scripts": {
     "build": "npx babel ./src --out-dir ./dist --copy-files",
@@ -14,7 +14,7 @@
   "author": "jane.gao",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.9.6",  
+    "@babel/runtime": "^7.9.6",
     "@fetch-plus/core": "^1.4.0",
     "@fetch-plus/plugins": "^1.4.0",
     "fetch-ponyfill": "^6.1.0"
