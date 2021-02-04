@@ -11,7 +11,7 @@
   "dependencies": {
     "@fetch-plus/core": "^1.4.0",
     "@fetch-plus/ponyfill": "^1.4.1"
-  },
+  },   
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
