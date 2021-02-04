@@ -23,6 +23,10 @@ function toURLSearchParamsString(params) {
 	return searchParams.toString()  
 }
 
+function isSubmitMethod(method) {
+	return method === 'POST' || method === 'PUT' || method === 'PATCH'
+}
+
 export default options => async (ctx, next) => {
 	const { request } = ctx
 	const { url, method, body, req: { search, type } } = request
@@ -55,20 +59,19 @@ export default options => async (ctx, next) => {
 		request.url = urlJoin(request.url, `?${searchParamsString}`)
 	}
 
-	if ((method === 'POST' || method === 'PUT') && type) {
+	if (isSubmitMethod(method) && type) {
 		const contentType = type === 'json' ? TYPE_JSON 
-			: type === 'form' ? TYPE_FORM 
-			: type === 'multipart' ? TYPE_MULTIPART : ''
+			: type === 'form' ? TYPE_FORM : undefined
 		contentType && (request.header('Content-Type', contentType))
 	}
-	if ((method === 'POST' || method === 'PUT') 
+	if (isSubmitMethod(method) 
 		&& typeof request.is === 'function'
 		&& typeof body === 'object' && Object.getPrototypeOf(body) === Object.prototype) {
 		if (request.is(TYPE_JSON)) {
 			request.body = JSON.stringify(body)
 		} else if (request.is(TYPE_FORM)) {
 			request.body = toURLSearchParamsString(body)
-		} else if (request.is(TYPE_MULTIPART) && typeof FormData === 'function') {
+		} else if (type === 'multipart' && typeof FormData === 'function') {
 			const formData = new FormData()
 			Object.entries(body).forEach(([key, value]) => formData.append(key, value))
 			request.body = formData

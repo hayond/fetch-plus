@@ -6,8 +6,6 @@ koa style middleware for Fetch API on browser and nodejs
 
 ```
 npm install @fetch-plus/ponyfill --save
-// for browser
-// npm install @fetch-plus/web --save
 ```
 
 ### Usage
@@ -22,12 +20,33 @@ fetch.use(async (ctx, next) => {
 })
 
 fetch('react', { 
-	// dataType: 'json',
-	search: { meta: true }
+	// method: 'GET'
+	// dataType: 'json', // default response return json, ['json', 'text', 'blob']
+	// type: 'json', // default request content-type is json, ['json', 'form', 'multipart']
+	search: { meta: true } // query params append to url, ex: '?meta=true' 
+	// body: {}, // when method is ['POST', 'PUT', 'PATCH'], the body be submited
+	// headers: {}, // request headers
+	// credentials: 'include', // cors cookie 
 }).then(data => {
 	console.log(data)
 })
 
+// or use base plugin
+fetch.base({
+	baseUrl: 'https://unpkg.com/',
+	search: { meta: true },
+	// body: {},
+	// headers: {},
+	// credentials: 'include',
+	// method: 'GET',
+	// type: '', // ['json', 'form', 'multipart']
+	// dataType: '', // ['json', 'text', 'blob'] 
+	// pre(request, ctx, body, req) {  },
+	// post(response, ctx, data, req) {  },
+	// catch(error) {  }
+})
+
+fetch('react').then(data => console.log(data))
 ```
 
 ### Methods
@@ -37,9 +56,33 @@ fetch('react', {
 fetch('https://unpkg.com/react', { dataType: 'text' })
 ```
 
+#### fetch.base(options)
+```js
+fetch.base({
+	baseUrl: '/',
+	search: {},
+	body: {},
+	headers: {},
+	credentials: 'include',
+	method: 'GET',
+	type: '', // ['json', 'form', 'multipart']
+	dataType: '', // ['json', 'text', 'blob'] 
+	pre(request, ctx, body, req) { 
+		// const { url, options } = req // request arguments
+
+	},
+	post(response, ctx, data, req) { 
+		// const { url, options } = req // request arguments
+		// ctx.data = data.data // change all response data
+		// ctx.interrupt() interrupt promise then or catch invoke
+	},
+	catch(error) {  }
+})
+```
+
 #### fetch.use(middleware, index)
 ```js
-fetch(async (ctx, next) => {
+fetch.use(async (ctx, next) => {
 	...
 	await next()
 	...
@@ -51,27 +94,20 @@ index is the order in the middleware list, default will push to the end
 
 #### FetchPlusPonyfill
 ```js
-import FetchPlusPonyfill, { fetch, basePlugin } from  '@fetch-plus/ponyfill'
-// import searchBodyPlugin from '@fetch-plus/plugins/lib/SearchBodyPlugin'
+import FetchPlusPonyfill, { fetch } from  '@fetch-plus/ponyfill'
 
 const fetchPlus = new FetchPlusPonyfill()
 
 // use basePlugin to add baseUrl, baseSearch, baseBody and so on.
-fetchPlus.use(basePlugin({
+fetchPlus.base({
 	baseUrl: 'https://unpkg.com',
 	search: {} 
-}), 0)
-
-fetch.use(async (ctx, next) => {
-	const { request } = ctx
-	// some middleware logic
-	await next()
 })
 
-// FetchPlus.use(searchBodyPlugin()) // Aleady in FetchPlusPonyfill!
 fetchPlus.fetch('react', { dataType: 'text' })
 ```
 method fetch is the shortcut of the FetchPlusPonyfill instance, with default inner plugins:
+- BasePlugin
 - DataTypePlugin
 - TypeIsPlugin
 - SearchBodyPlugin
@@ -81,5 +117,4 @@ method fetch is the shortcut of the FetchPlusPonyfill instance, with default inn
 import FetchPlus from '@fetch-plus/core'
 ```
 base FetchPlus class without [fetch-ponyfill](https://github.com/qubyte/fetch-ponyfill) and [DefaultPlugins](https://github.com/touwaka/fetch-plus/blob/master/packages/plugins/src/DefaultPlugins.js)
-
 
