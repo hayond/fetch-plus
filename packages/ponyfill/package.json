@@ -1,34 +1,22 @@
 {
   "name": "@fetch-plus/ponyfill",
-<<<<<<< HEAD
   "version": "1.4.2",
-=======
-  "version": "1.3.7",
->>>>>>> f5aaadd1a0ab988e1915fbc1e81da592aed7442a
   "description": "",
   "main": "dist/FetchPlusPonyfill",
   "scripts": {
     "build": "npx babel ./src --out-dir ./dist --copy-files",
     "watch": "npx babel ./src --watch --out-dir ./dist --copy-files"
   },
-<<<<<<< HEAD
   "repository": {
     "type": "git",
     "url": "https://github.com/touwaka/fetch-plus.git"
   },
-=======
->>>>>>> f5aaadd1a0ab988e1915fbc1e81da592aed7442a
   "author": "jane.gao",
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.9.6",
-<<<<<<< HEAD
     "@fetch-plus/core": "^1.4.2",
     "@fetch-plus/plugins": "^1.4.2",
-=======
-    "@fetch-plus/core": "^1.3.5",
-    "@fetch-plus/plugins": "^1.3.7",
->>>>>>> f5aaadd1a0ab988e1915fbc1e81da592aed7442a
     "fetch-ponyfill": "^6.1.0"
   },
   "devDependencies": {
