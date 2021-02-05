@@ -6,8 +6,6 @@ koa style middleware for Fetch API on browser and nodejs
 
 ```
 npm install @fetch-plus/ponyfill --save
-// for browser
-// npm install @fetch-plus/web --save
 ```
 
 ### Usage
@@ -22,12 +20,33 @@ fetch.use(async (ctx, next) => {
 })
 
 fetch('react', { 
-	// dataType: 'json',
-	search: { meta: true }
+	// method: 'GET'
+	// dataType: 'json', // default response return json, ['json', 'text', 'blob']
+	// type: 'json', // default request content-type is json, ['json', 'form', 'multipart']
+	search: { meta: true } // query params append to url, ex: '?meta=true' 
+	// body: {}, // when method is ['POST', 'PUT', 'PATCH'], the body be submited
+	// headers: {}, // request headers
+	// credentials: 'include', // cors cookie 
 }).then(data => {
 	console.log(data)
 })
 
+// or use base plugin
+fetch.base({
+	baseUrl: 'https://unpkg.com/',
+	search: { meta: true },
+	// body: {},
+	// headers: {},
+	// credentials: 'include',
+	// method: 'GET',
+	// type: '', // ['json', 'form', 'multipart']
+	// dataType: '', // ['json', 'text', 'blob'] 
+	// pre(request, ctx, body, req) {  },
+	// post(response, ctx, data, req) {  },
+	// catch(error) {  }
+})
+
+fetch('react').then(data => console.log(data))
 ```
 
 ### Methods
@@ -48,8 +67,15 @@ fetch.base({
 	method: 'GET',
 	type: '', // ['json', 'form', 'multipart']
 	dataType: '', // ['json', 'text', 'blob'] 
-	pre(request, ctx, body, req) {  },
-	post(response, ctx, data, req) {  },
+	pre(request, ctx, body, req) { 
+		// const { url, options } = req // request arguments
+
+	},
+	post(response, ctx, data, req) { 
+		// const { url, options } = req // request arguments
+		// ctx.data = data.data // change all response data
+		// ctx.interrupt() interrupt promise then or catch invoke
+	},
 	catch(error) {  }
 })
 ```
