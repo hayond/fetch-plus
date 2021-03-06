@@ -8,7 +8,7 @@
     "watch": "npx babel ./src --watch --out-dir ./dist --copy-files"
   },
   "author": "jane.gao",
-  "dependencies": {
+  "dependencies": { 
     "@babel/runtime": "^7.9.6",
     "koa-compose": "^4.1.0"
   },
