@@ -1,7 +1,6 @@
 import compose from 'koa-compose'
 import Request from './Request'
 import Response from './Response' 
-import FakePromise from './FakePromise'
 
 export class InterruptError extends Error { }
 
@@ -29,11 +28,9 @@ export default class FetchPlus {
 
     fetch(url, options={}) {
         const innerFetchPromise = this.innerFetch({ url, options })
-        return new FakePromise(innerFetchPromise, {
-            catch(error) {
-                if (error instanceof InterruptError) return false
-                return error
-            }
+        innerFetchPromise.catch(error => {
+            if (error instanceof InterruptError) return new Promise((resolve, reject) => {})
+            throw error
         })
     }
 
